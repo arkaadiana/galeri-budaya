@@ -18,14 +18,30 @@
   <!-- Header Section -->
   <x-navbar></x-navbar>
 
-<!-- Main Content -->
-<section class="mt-40 flex justify-center items-center py-12">
-  <img src="/img/Aksara/aksara.png" alt="Gambar Budaya Bali" class="w-full max-w-screen-xl h-[80vh] object-contain" />
-</section>
+  <!-- Main Content -->
+  <section id="main-content" class="mt-24 flex justify-center items-center py-12 overflow-auto">
+    <div id="cover" class="w-full max-w-screen-2xl h-[90vh] hover:scale-110 transition-transform duration-300"></div>
+  </section>
 
+  <script>
+    // Sample data with only the cover image and ID
+    const data = {
+      id: 1,
+      cover: '/img/Aksara/aksara.png',
+    };
 
+    // Function to display the cover image with the ID
+    const displayContent = (data) => {
+      const coverDiv = document.getElementById('cover');
+      coverDiv.id = `cover-${data.id}`; // Add ID to the div element
+      coverDiv.innerHTML = `
+        <img src="${data.cover}" alt="Gambar Budaya Bali" class="w-full h-full object-contain" />
+      `;
+    };
 
-
+    // Call the function to display the content
+    displayContent(data);
+  </script>
 </body>
 
 </html>
