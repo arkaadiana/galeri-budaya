@@ -1,6 +1,7 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Galeri Budaya Bali</title>
@@ -20,6 +21,26 @@
         }
     </style>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+=======
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Galeri Budaya Bali</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      /* Menghindari scroll horizontal */
+    }
+
+    .scrollable-section {
+      height: 80vh;
+      overflow-y: auto;
+    }
+  </style>
+>>>>>>> 7aa05c387039a58145ce24662f9b5255846f62f8
 </head>
 
 <body class="bg-white text-gray-800">
@@ -87,6 +108,7 @@
             },
         ];
 
+<<<<<<< HEAD
         // Nama-nama bulan dalam bahasa Indonesia
         const bulanIndonesia = [
             "Januari", "Februari", "Maret", "April", "Mei", "Juni",
@@ -99,6 +121,27 @@
             hariRaya.forEach(hari => {
                 const hariRayaElement = document.createElement('li');
                 hariRayaElement.classList.add('mb-6');
+=======
+  <script>
+    // Data dummy yang mensimulasikan data hari raya
+    const hariRaya = [{
+        id: 1,
+        name: "Purnama",
+        date: "2024-12-15"
+      },
+      {
+        id: 2,
+        name: "Tilem",
+        date: "2024-12-30"
+      },
+    ];
+
+    // Nama-nama bulan dalam bahasa Indonesia
+    const bulanIndonesia = [
+      "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+      "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+    ];
+>>>>>>> 7aa05c387039a58145ce24662f9b5255846f62f8
 
                 // Container flex untuk menyelaraskan tanggal dan nama hari raya
                 hariRayaElement.innerHTML = `
