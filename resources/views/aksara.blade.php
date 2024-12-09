@@ -18,5 +18,14 @@
   <!-- Header Section -->
   <x-navbar></x-navbar>
 
+<!-- Main Content -->
+<section class="mt-40 flex justify-center items-center py-12">
+  <img src="/img/Aksara/aksara.png" alt="Gambar Budaya Bali" class="w-full max-w-screen-xl h-[80vh] object-contain" />
+</section>
+
+
+
+
 </body>
+
 </html>
