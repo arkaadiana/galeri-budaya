@@ -19,8 +19,8 @@
   <x-navbar></x-navbar>
 
   <!-- Main Content -->
-  <section id="main-content" class="mt-24 flex justify-center items-center py-12 overflow-auto">
-    <div id="cover" class="w-full max-w-screen-2xl h-[90vh] hover:scale-110 transition-transform duration-300"></div>
+  <section id="main-content" class="mt-24 flex justify-center items-center py-12">
+    <div id="cover" class="w-full max-w-screen-xl h-[120vh] hover:scale-105 transition-transform duration-300"></div>
   </section>
 
   <script>

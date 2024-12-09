@@ -10,8 +10,10 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      overflow-x: hidden; /* Menghindari scroll horizontal */
+      overflow-x: hidden;
+      /* Menghindari scroll horizontal */
     }
+
     .scrollable-section {
       height: 80vh;
       overflow-y: auto;
@@ -72,14 +74,21 @@
 
   <script>
     // Data dummy yang mensimulasikan data hari raya
-    const hariRaya = [
-      { id: 1, name: "Purnama", date: "2024-12-15" },
-      { id: 2, name: "Tilem", date: "2024-12-30" },
+    const hariRaya = [{
+        id: 1,
+        name: "Purnama",
+        date: "2024-12-15"
+      },
+      {
+        id: 2,
+        name: "Tilem",
+        date: "2024-12-30"
+      },
     ];
 
     // Nama-nama bulan dalam bahasa Indonesia
     const bulanIndonesia = [
-      "Januari", "Februari", "Maret", "April", "Mei", "Juni", 
+      "Januari", "Februari", "Maret", "April", "Mei", "Juni",
       "Juli", "Agustus", "September", "Oktober", "November", "Desember"
     ];
 
