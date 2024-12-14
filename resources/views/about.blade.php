@@ -19,7 +19,7 @@
     <!-- Header Section -->
     <x-navbar></x-navbar>
 
-    <main class="h-screen flex mt-40">
+    <main class="h-screen flex mt-24">
         <!-- Cover -->
         <div id="cover" class="w-2/4 h-3/4 mx-auto hover:scale-110 transition-transform duration-300"></div>
 

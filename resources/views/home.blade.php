@@ -35,7 +35,7 @@
     <x-navbar></x-navbar>
 
     <!-- Main Content -->
-    <main class="mt-20 px-8">
+    <main class="mt-18 px-8">
         <div class="flex flex-col md:flex-row">
             <!-- Left Section -->
             <div class="md:w-3/5 md:pr-8 pl-[220px] flex flex-col justify-end mb-[200px]">

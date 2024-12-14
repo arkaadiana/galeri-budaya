@@ -1,6 +1,6 @@
 <?php
 // Function to read all images in a specified directory
-function getImagesFromDirectory($directory)
+function getImagesFromDirectory($directory, $search = '')
 {
     $imageFiles = [];
     $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
@@ -12,6 +12,10 @@ function getImagesFromDirectory($directory)
                 $filePath = $directory . '/' . $file;
                 $fileExtension = pathinfo($file, PATHINFO_EXTENSION);
                 if (in_array(strtolower($fileExtension), $allowedExtensions)) {
+                    // If search query exists, filter images by name
+                    if ($search && stripos(pathinfo($file, PATHINFO_FILENAME), $search) === false) {
+                        continue;
+                    }
                     $imageFiles[] = [
                         'src' => asset($filePath),
                         'alt' => pathinfo($file, PATHINFO_FILENAME),
@@ -24,21 +28,25 @@ function getImagesFromDirectory($directory)
     return $imageFiles;
 }
 
+// Fetch search query if exists
+$searchQuery = request('search');
+
 // Directory data
 $imageData = [
-    'badung' => getImagesFromDirectory('img/Badung'),
-    'bangli' => getImagesFromDirectory('img/Bangli'),
-    'buleleng' => getImagesFromDirectory('img/Buleleng'),
-    'denpasar' => getImagesFromDirectory('img/Denpasar'),
-    'gianyar' => getImagesFromDirectory('img/Gianyar'),
-    'karangasem' => getImagesFromDirectory('img/Karangasem'),
-    'klungkung' => getImagesFromDirectory('img/Klungkung'),
-    'tabanan' => getImagesFromDirectory('img/Tabanan'),
+    'badung' => getImagesFromDirectory('img/Badung', $searchQuery),
+    'bangli' => getImagesFromDirectory('img/Bangli', $searchQuery),
+    'buleleng' => getImagesFromDirectory('img/Buleleng', $searchQuery),
+    'denpasar' => getImagesFromDirectory('img/Denpasar', $searchQuery),
+    'gianyar' => getImagesFromDirectory('img/Gianyar', $searchQuery),
+    'karangasem' => getImagesFromDirectory('img/Karangasem', $searchQuery),
+    'klungkung' => getImagesFromDirectory('img/Klungkung', $searchQuery),
+    'tabanan' => getImagesFromDirectory('img/Tabanan', $searchQuery),
 ];
 
 // Encode data to JSON for use in JavaScript
 $imageDataJson = json_encode($imageData);
 ?>
+
 
 <html lang="en">
 
@@ -99,26 +107,17 @@ $imageDataJson = json_encode($imageData);
     <x-navbar></x-navbar>
 
     <!-- Region Selector Section -->
-    <main class="container mx-auto px-4 py-8 pt-24 mt-24">
+    <main class="container mx-auto px-4 py-8 pt-18 mt-24 relative z-10">
         <div class="region-button-container flex flex-wrap justify-center mb-4">
-            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2"
-                data-region="semua">Semua</button>
-            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2"
-                data-region="badung">Badung</button>
-            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2"
-                data-region="bangli">Bangli</button>
-            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2"
-                data-region="buleleng">Buleleng</button>
-            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2"
-                data-region="denpasar">Denpasar</button>
-            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2"
-                data-region="gianyar">Gianyar</button>
-            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2"
-                data-region="karangasem">Karangasem</button>
-            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2"
-                data-region="klungkung">Klungkung</button>
-            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2"
-                data-region="tabanan">Tabanan</button>
+            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2" data-region="semua">Semua</button>
+            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2" data-region="badung">Badung</button>
+            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2" data-region="bangli">Bangli</button>
+            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2" data-region="buleleng">Buleleng</button>
+            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2" data-region="denpasar">Denpasar</button>
+            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2" data-region="gianyar">Gianyar</button>
+            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2" data-region="karangasem">Karangasem</button>
+            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2" data-region="klungkung">Klungkung</button>
+            <button class="region-button bg-white text-gray-700 rounded-full px-4 py-2 m-2" data-region="tabanan">Tabanan</button>
         </div>
 
         <!-- Container to display images -->

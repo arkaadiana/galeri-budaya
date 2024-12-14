@@ -1,5 +1,5 @@
-<nav class="bg-white" x-data="{ isOpen: false }">
-    <div class="px-4 sm:px-6 lg:px-8  w-full pt-4">
+<nav class="bg-white fixed top-0 left-0 z-50 w-full" x-data="{ isOpen: false }">
+    <div class="px-4 sm:px-6 lg:px-8 w-full pt-4">
         <div class="flex h-16 justify-between items-center">
             <!-- Logo Section -->
             <a href="/" class="ms-12">
@@ -10,13 +10,15 @@
             </a>
 
             <!-- Search Bar -->
-            <div class="max-md:hidden flex items-center space-x-4 px-8">
-                <input
-                    class="px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 w-72"
-                    type="text" placeholder="Cari disini ..." />
-                <button class="p-2 rounded-full bg-purple-600 text-white">
-                    <i class="fas fa-search"></i>
-                </button>
+            <div class="max-md:hidden flex items-center space-x-4 px-8 z-40">
+                <form action="{{ route('galery') }}" method="GET" class="flex items-center space-x-2">
+                    <input
+                        class="px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 w-72"
+                        type="text" name="search" value="{{ request('search') }}" placeholder="Cari disini ..." />
+                    <button type="submit" class="p-2 rounded-full bg-purple-600 text-white">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
             </div>
 
             <!-- Navigation Links -->
@@ -58,8 +60,18 @@
     </div>
 
     <!-- Mobile menu -->
-    <div x-show="isOpen" class="md:hidden border-t border-gray-700" id="mobile-menu">
+    <div x-show="isOpen" class="md:hidden border-t border-gray-700 z-40" id="mobile-menu">
         <div class="space-y-12 px-2 pb-3 pt-2 sm:px-3 ms-6">
+            <!-- Mobile Search Bar -->
+            <form action="{{ route('galery') }}" method="GET" class="flex items-center space-x-2 px-4 py-2">
+                <input
+                    class="px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 w-full"
+                    type="text" name="search" value="{{ request('search') }}" placeholder="Cari disini ..." />
+                <button type="submit" class="p-2 rounded-full bg-purple-600 text-white">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+
             <a href="/galery"
                 class="block rounded-md px-3 py-2 text-xl font-medium {{ request()->is('galery') ? 'text-purple-600' : 'text-gray-800 hover:text-purple-600' }}">Galeri
                 Budaya</a>
@@ -78,3 +90,29 @@
         </div>
     </div>
 </nav>
+
+<!-- Additional styling to prevent content overlap -->
+<div class="pt-20">
+    <!-- Page content here -->
+</div>
+
+<style>
+    /* Menambahkan styling untuk memastikan navbar tetap di atas */
+    body {
+        position: relative;
+        z-index: 0;
+        /* Pastikan body tidak menutupi navbar */
+    }
+
+    /* Tambahkan kelas untuk memastikan navbar tetap di atas */
+    nav {
+        z-index: 100;
+        /* Pastikan navbar memiliki nilai z-index yang lebih tinggi */
+    }
+
+    /* Pastikan konten tidak tertutupi navbar */
+    .pt-20 {
+        padding-top: 5rem;
+        /* Sesuaikan dengan tinggi navbar */
+    }
+</style>
