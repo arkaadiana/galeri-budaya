@@ -43,7 +43,7 @@
             const coverDiv = document.getElementById('cover');
             coverDiv.id = `cover-${data.id}`; // Menambahkan ID elemen
             coverDiv.innerHTML =
-                `<img src="${data.cover}" alt="Cultural Main Image" class="w-full h-full object-contain" />`;
+                `<img src="{{ asset('${data.cover}') }}" alt="Cultural Main Image" class="w-full h-full object-contain" />`;
 
             // Display the information with ID
             const infoDiv = document.getElementById('info');

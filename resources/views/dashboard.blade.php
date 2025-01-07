@@ -15,13 +15,13 @@
     </style>
 </head>
 
-<body class="flex h-screen">
+<body class="flex h-screen grid grid-cols-4 overflow-hidden">
 
     <!-- Sidebar -->
     <x-sidebar></x-sidebar>
 
     <!-- Main Content -->
-    <div class="flex-1 flex flex-col items-center justify-center">
+    <div class="flex-1 flex flex-col items-center justify-center container col-span-3 mx-auto relative overflow-y-auto mt-20 w-full">
         <div class="flex items-center">
             <div class="text-right mr-8">
                 <h1 class="text-6xl font-light mb-4">SELAMAT DATANG</h1>

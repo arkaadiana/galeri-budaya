@@ -10,7 +10,7 @@ class AdminController extends Controller
     // Menampilkan halaman login
     public function showLogin()
     {
-        return view('login-admin'); // Menampilkan halaman login
+        return view('login-admin');
     }
 
     // Proses login admin
@@ -24,7 +24,7 @@ class AdminController extends Controller
 
         // Dummy credentials (ganti dengan autentikasi yang sesuai)
         $credentials = [
-            'admin' => 'admin123', // Ganti dengan autentikasi yang lebih aman
+            'admin' => 'admin123',
         ];
 
         $username = $request->input('username');
@@ -58,12 +58,51 @@ class AdminController extends Controller
     // Menampilkan galeri admin
     public function galeryAdmin()
     {
-        // Cek apakah admin sudah login
         if (!Session::get('admin_logged_in')) {
             return redirect()->route('admin.login')->with('error', 'Harap login terlebih dahulu.');
         }
 
         return view('galery-admin');
+    }
+
+    // Menampilkan artikel admin
+    public function artikelAdmin()
+    {
+        if (!Session::get('admin_logged_in')) {
+            return redirect()->route('admin.login')->with('error', 'Harap login terlebih dahulu.');
+        }
+
+        return view('artikel-admin');
+    }
+
+    // Menampilkan aksara admin
+    public function aksaraAdmin()
+    {
+        if (!Session::get('admin_logged_in')) {
+            return redirect()->route('admin.login')->with('error', 'Harap login terlebih dahulu.');
+        }
+
+        return view('aksara-admin');
+    }
+
+    // Menampilkan kalender admin
+    public function kalenderAdmin()
+    {
+        if (!Session::get('admin_logged_in')) {
+            return redirect()->route('admin.login')->with('error', 'Harap login terlebih dahulu.');
+        }
+
+        return view('kalender-admin');
+    }
+
+    // Menampilkan about admin
+    public function aboutAdmin()
+    {
+        if (!Session::get('admin_logged_in')) {
+            return redirect()->route('admin.login')->with('error', 'Harap login terlebih dahulu.');
+        }
+
+        return view('about-admin');
     }
 
     // Logout admin
@@ -76,3 +115,4 @@ class AdminController extends Controller
         return redirect()->route('admin.login')->with('success', 'Logout berhasil.');
     }
 }
+

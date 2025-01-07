@@ -10,11 +10,11 @@
             </a>
 
             <!-- Search Bar -->
-            <div class="max-md:hidden flex items-center space-x-4 px-8 z-40">
+            <div class="max-md:hidden flex items-center space-x-4 px-8 z-40 mt-4">
                 <form action="{{ route('galery') }}" method="GET" class="flex items-center space-x-2">
                     <input
                         class="px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 w-72"
-                        type="text" name="search" value="{{ request('search') }}" placeholder="Cari disini ..." />
+                        type="text" name="search" value="{{ request('search') }}" placeholder="Cari gambar ..." />
                     <button type="submit" class="p-2 rounded-full bg-purple-600 text-white">
                         <i class="fas fa-search"></i>
                     </button>
